@@ -16,7 +16,7 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 
 // ใช้ไฟล์ static จากโฟลเดอร์ code
-app.use(express.static(path.join(__dirname, 'code')));
+app.use(express.static(path.join(__dirname, '..', 'code')));
 
 // เชื่อมต่อกับฐานข้อมูล
 const db = mysql.createConnection({
@@ -37,7 +37,7 @@ db.connect((err) => {
 
 // เสิร์ฟไฟล์ HTML หลักที่เส้นทางหลัก
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'code', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'code', 'index.html'));
 });
 
 // API documentation ย้ายมาที่เส้นทาง /api
